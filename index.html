@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Menejerlik testi</title>
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+<style>
+  :root{
+    --bg:#f3f6fb; --card:#ffffff; --text:#0f172a; --muted:#64748b;
+    --brand:#2563eb; --brand2:#0ea5e9; --ok:#16a34a; --okbg:#dcfce7;
+    --bad:#dc2626; --badbg:#fee2e2; --line:#e2e8f0;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;display:flex;justify-content:center}
+  .app{width:100%;max-width:480px;padding:20px 16px 32px}
+  .card{background:var(--card);border-radius:20px;padding:22px;box-shadow:0 4px 18px rgba(15,23,42,.06)}
+  h1{font-size:24px;line-height:1.25;margin-bottom:8px}
+  h2{font-size:19px;line-height:1.4;margin-bottom:18px}
+  p{color:var(--muted);line-height:1.5}
+  .hero{background:linear-gradient(135deg,var(--brand),var(--brand2));color:#fff;border-radius:20px;padding:24px;margin-bottom:16px}
+  .hero p{color:rgba(255,255,255,.88)}
+  .badge{display:inline-block;background:rgba(255,255,255,.2);padding:5px 11px;border-radius:99px;font-size:13px;margin-bottom:12px}
+  .stats{display:flex;gap:10px;margin:16px 0 20px}
+  .stat{flex:1;background:var(--bg);border-radius:14px;padding:12px;text-align:center}
+  .stat b{display:block;font-size:20px}
+  .stat span{font-size:12px;color:var(--muted)}
+  label{display:block;font-size:14px;font-weight:600;margin-bottom:6px}
+  input{width:100%;padding:14px;border:1.5px solid var(--line);border-radius:14px;font-size:16px;margin-bottom:16px;outline:none}
+  input:focus{border-color:var(--brand)}
+  .btn{width:100%;padding:16px;border:none;border-radius:14px;font-size:16px;font-weight:700;cursor:pointer;background:var(--brand);color:#fff}
+  .btn:disabled{opacity:.45;cursor:default}
+  .btn.ghost{background:var(--bg);color:var(--text);margin-top:10px}
+  .top{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+  .count{font-weight:600;color:var(--muted);font-size:14px}
+  .timer{background:#e0f2fe;color:#0369a1;font-weight:800;padding:7px 14px;border-radius:99px;font-variant-numeric:tabular-nums}
+  .timer.low{background:var(--badbg);color:var(--bad)}
+  .bar{height:6px;background:var(--line);border-radius:99px;overflow:hidden;margin-bottom:16px}
+  .bar i{display:block;height:100%;background:linear-gradient(90deg,var(--brand),var(--brand2));transition:width .3s}
+  .opt{display:flex;align-items:center;gap:12px;width:100%;text-align:left;padding:14px;margin-bottom:10px;border:1.5px solid var(--line);border-radius:14px;background:#fff;font-size:15px;line-height:1.4;cursor:pointer;color:var(--text)}
+  .opt .l{flex:none;width:30px;height:30px;border-radius:9px;background:var(--bg);display:grid;place-items:center;font-weight:700}
+  .opt.ok{border-color:var(--ok);background:var(--okbg)}
+  .opt.ok .l{background:var(--ok);color:#fff}
+  .opt.bad{border-color:var(--bad);background:var(--badbg)}
+  .opt.bad .l{background:var(--bad);color:#fff}
+  .opt:disabled{cursor:default}
+  .note{border-radius:14px;padding:13px;margin:6px 0 14px;font-size:14px;line-height:1.5}
+  .note.ok{background:var(--okbg);color:#14532d}
+  .note.bad{background:var(--badbg);color:#7f1d1d}
+  .score{width:150px;height:150px;border-radius:50%;margin:8px auto 18px;display:grid;place-items:center;text-align:center}
+  .score div{width:118px;height:118px;border-radius:50%;background:#fff;display:grid;place-items:center}
+  .score b{font-size:34px;display:block}
+  .score span{font-size:13px;color:var(--muted)}
+  .center{text-align:center}
+  .review{margin-top:18px}
+  .ri{border-top:1px solid var(--line);padding:12px 0;font-size:14px;line-height:1.45}
+  .ri b{display:block;margin-bottom:4px}
+  .ri .y{color:var(--bad)} .ri .c{color:var(--ok)}
+  .hidden{display:none}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <!-- Boshlash -->
+  <section id="start">
+    <div class="hero">
+      <span class="badge">🏫 Maktab bo‘limi</span>
+      <h1>Menejerlik bo‘yicha test</h1>
+      <p>Ta’lim muassasasini boshqarish asoslari bo‘yicha bilimingizni sinab ko‘ring.</p>
+    </div>
+    <div class="card">
+      <div class="stats">
+        <div class="stat"><b id="sQ">10</b><span>savol</span></div>
+        <div class="stat"><b>30</b><span>soniya / savol</span></div>
+        <div class="stat"><b>1</b><span>to‘g‘ri javob</span></div>
+      </div>
+      <label for="name">Ism-familiyangiz</label>
+      <input id="name" placeholder="Masalan: Aliyeva Nodira" autocomplete="name">
+      <button class="btn" id="go" disabled>Testni boshlash</button>
+    </div>
+  </section>
+
+  <!-- Savol -->
+  <section id="quiz" class="hidden">
+    <div class="top">
+      <span class="count" id="count"></span>
+      <span class="timer" id="timer">00:30</span>
+    </div>
+    <div class="bar"><i id="prog"></i></div>
+    <div class="card">
+      <h2 id="qText"></h2>
+      <div id="opts"></div>
+      <div id="note" class="note hidden"></div>
+      <button class="btn hidden" id="next">Keyingi savol</button>
+    </div>
+  </section>
+
+  <!-- Natija -->
+  <section id="result" class="hidden">
+    <div class="card center">
+      <h1 id="rTitle"></h1>
+      <p id="rName"></p>
+      <div class="score" id="ring"><div><span><b id="rScore"></b>to‘g‘ri javob</span></div></div>
+      <p id="rMsg"></p>
+      <div class="review" id="review" style="text-align:left"></div>
+      <button class="btn" id="again" style="margin-top:18px">Qayta topshirish</button>
+    </div>
+  </section>
+
+</div>
+
+<script>
+/* ====== SAVOLLAR: shu yerni o‘zgartirib, o‘z savollaringizni qo‘yasiz ====== */
+const QUESTIONS = [
+  { q: "Menejmentning asosiy funksiyalariga qaysi biri kirmaydi?",
+    o: ["Rejalashtirish", "Nazorat", "Motivatsiya", "Reklama"], a: 3,
+    e: "Klassik funksiyalar: rejalashtirish, tashkil etish, motivatsiya va nazorat." },
+  { q: "SWOT tahlilidagi “W” harfi nimani bildiradi?",
+    o: ["Imkoniyatlar", "Zaif tomonlar", "Kuchli tomonlar", "Tahdidlar"], a: 1,
+    e: "W — Weaknesses, ya’ni tashkilotning zaif tomonlari." },
+  { q: "SMART maqsad qo‘yish modelidagi “M” harfi qaysi talabni anglatadi?",
+    o: ["O‘lchanadigan", "Motivatsion", "Majburiy", "Mustaqil"], a: 0,
+    e: "M — Measurable: maqsad natijasini o‘lchash mumkin bo‘lishi kerak." },
+  { q: "Delegatsiya — bu …",
+    o: ["xodimni ishdan bo‘shatish", "vakolat va vazifalarni boshqa xodimga topshirish", "hisobotlarni arxivlash", "yig‘ilish bayonnomasini yozish"], a: 1,
+    e: "Rahbar ishning bir qismini mas’uliyat va vakolat bilan birga xodimga topshiradi." },
+  { q: "A. Maslou ehtiyojlar piramidasining eng quyi pog‘onasida qaysi ehtiyojlar turadi?",
+    o: ["O‘zini namoyon qilish", "Hurmat va e’tirof", "Fiziologik ehtiyojlar", "Ijtimoiy ehtiyojlar"], a: 2,
+    e: "Piramida asosida oziq-ovqat, uyqu kabi fiziologik ehtiyojlar turadi." },
+  { q: "PDCA (Deming) siklidagi “Check” bosqichida nima qilinadi?",
+    o: ["Reja tuziladi", "Natijalar tekshiriladi va tahlil qilinadi", "Ish bajariladi", "Xodimlar mukofotlanadi"], a: 1,
+    e: "Plan — rejalash, Do — bajarish, Check — tekshirish, Act — takomillashtirish." },
+  { q: "Demokratik boshqaruv uslubiga xos belgi qaysi?",
+    o: ["Qarorlarni yolg‘iz qabul qilish", "Jamoa ishiga aralashmaslik", "Qarorlarni jamoa bilan muhokama qilib qabul qilish", "Faqat buyruq orqali boshqarish"], a: 2,
+    e: "Demokratik rahbar jamoa fikrini inobatga oladi va uni qaror qabul qilishga jalb etadi." },
+  { q: "Eyzenxauer matritsasi nimaga yordam beradi?",
+    o: ["Byudjetni hisoblashga", "Vazifalarni muhimligi va shoshilinchligi bo‘yicha saralashga", "Dars jadvalini tuzishga", "O‘quvchilarni baholashga"], a: 1,
+    e: "Vazifalar 4 guruhga bo‘linadi: muhim/shoshilinch, muhim/shoshilinch emas va h.k." },
+  { q: "Maktabda mentorlik tizimining asosiy maqsadi nima?",
+    o: ["Tajribali o‘qituvchining yosh o‘qituvchiga kasbiy yordam berishi", "O‘qituvchilarni jarimaga tortish", "Dars soatlarini qisqartirish", "Hisobotlar sonini ko‘paytirish"], a: 0,
+    e: "Mentorlik yosh mutaxassisning tez moslashishi va kasbiy o‘sishiga xizmat qiladi." },
+  { q: "Samarali teskari aloqa (feedback) qanday bo‘lishi kerak?",
+    o: ["Umumiy va mavhum", "Faqat yil oxirida beriladigan", "Aniq, o‘z vaqtida va xatti-harakatga qaratilgan", "Faqat tanqiddan iborat"], a: 2,
+    e: "Feedback shaxsga emas, aniq harakat va natijaga qaratilganda samarali bo‘ladi." }
+];
+const SECONDS = 30;
+/* ========================================================================== */
+
+const $ = id => document.getElementById(id);
+const tg = window.Telegram && window.Telegram.WebApp;
+if (tg) { try { tg.ready(); tg.expand(); } catch(e){} }
+
+let order = [], idx = 0, score = 0, answers = [], timerId = null, left = SECONDS, userName = "";
+
+$("sQ").textContent = QUESTIONS.length;
+const nameInput = $("name");
+try {
+  const u = tg && tg.initDataUnsafe && tg.initDataUnsafe.user;
+  if (u) nameInput.value = [u.first_name, u.last_name].filter(Boolean).join(" ");
+} catch(e){}
+const checkName = () => $("go").disabled = nameInput.value.trim().length < 2;
+nameInput.addEventListener("input", checkName); checkName();
+
+function shuffle(a){ for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];} return a; }
+function show(id){ ["start","quiz","result"].forEach(s => $(s).classList.toggle("hidden", s!==id)); window.scrollTo(0,0); }
+
+$("go").onclick = () => {
+  userName = nameInput.value.trim();
+  order = shuffle(QUESTIONS.map((_,i)=>i)); idx = 0; score = 0; answers = [];
+  show("quiz"); renderQ();
+};
+
+function renderQ(){
+  const Q = QUESTIONS[order[idx]];
+  $("count").textContent = `Savol ${idx+1} / ${QUESTIONS.length}`;
+  $("prog").style.width = (idx / QUESTIONS.length * 100) + "%";
+  $("qText").textContent = Q.q;
+  $("note").className = "note hidden";
+  $("next").classList.add("hidden");
+  const box = $("opts"); box.innerHTML = "";
+  Q.o.forEach((t,i) => {
+    const b = document.createElement("button");
+    b.className = "opt";
+    b.innerHTML = `<span class="l">${"ABCD"[i]}</span><span></span>`;
+    b.lastChild.textContent = t;
+    b.onclick = () => pick(i);
+    box.appendChild(b);
+  });
+  startTimer();
+}
+
+function startTimer(){
+  clearInterval(timerId); left = SECONDS; paint();
+  timerId = setInterval(() => { left--; paint(); if (left <= 0) pick(-1); }, 1000);
+}
+function paint(){
+  const t = $("timer");
+  t.textContent = "00:" + String(Math.max(left,0)).padStart(2,"0");
+  t.classList.toggle("low", left <= 10);
+}
+
+function pick(i){
+  clearInterval(timerId);
+  const Q = QUESTIONS[order[idx]];
+  const btns = [...$("opts").children];
+  btns.forEach(b => b.disabled = true);
+  btns[Q.a].classList.add("ok");
+  const right = i === Q.a;
+  if (!right && i >= 0) btns[i].classList.add("bad");
+  if (right) score++;
+  answers.push({ q: Q.q, your: i >= 0 ? Q.o[i] : "Vaqt tugadi", correct: Q.o[Q.a], right });
+  const n = $("note");
+  n.className = "note " + (right ? "ok" : "bad");
+  n.textContent = (right ? "✅ To‘g‘ri! " : (i < 0 ? "⏰ Vaqt tugadi. " : "❌ Noto‘g‘ri. ")) + Q.e;
+  if (tg && tg.HapticFeedback) { try { tg.HapticFeedback.notificationOccurred(right ? "success" : "error"); } catch(e){} }
+  const nx = $("next");
+  nx.textContent = idx === QUESTIONS.length - 1 ? "Natijani ko‘rish" : "Keyingi savol";
+  nx.classList.remove("hidden");
+}
+
+$("next").onclick = () => { idx++; idx < QUESTIONS.length ? renderQ() : finish(); };
+
+function finish(){
+  show("result");
+  const total = QUESTIONS.length, pct = Math.round(score/total*100);
+  $("rTitle").textContent = pct >= 80 ? "Ajoyib natija! 🏆" : pct >= 50 ? "Yaxshi natija 👍" : "Yana mashq qiling 💪";
+  $("rName").textContent = userName;
+  $("rScore").textContent = `${score}/${total}`;
+  const col = pct >= 80 ? "#16a34a" : pct >= 50 ? "#2563eb" : "#dc2626";
+  $("ring").style.background = `conic-gradient(${col} ${pct*3.6}deg, #e2e8f0 0)`;
+  $("rMsg").textContent = `Siz ${pct}% natija ko‘rsatdingiz.`;
+  const wrong = answers.filter(a => !a.right);
+  const rv = $("review"); rv.innerHTML = "";
+  if (wrong.length) {
+    const h = document.createElement("h2"); h.textContent = "Xatolar ustida ishlash"; h.style.fontSize = "17px"; h.style.marginBottom = "4px";
+    rv.appendChild(h);
+    wrong.forEach(a => {
+      const d = document.createElement("div"); d.className = "ri";
+      d.innerHTML = `<b></b><div class="y"></div><div class="c"></div>`;
+      d.children[0].textContent = a.q;
+      d.children[1].textContent = "Sizning javobingiz: " + a.your;
+      d.children[2].textContent = "To‘g‘ri javob: " + a.correct;
+      rv.appendChild(d);
+    });
+  }
+}
+
+$("again").onclick = () => show("start");
+</script>
+</body>
+</html>
