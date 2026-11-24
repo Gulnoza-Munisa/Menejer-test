@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="uz"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tahlillar 7</title>
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:-apple-system,Segoe UI,Roboto,sans-serif;background:var(--tg-theme-bg-color,#f4f5f7);color:var(--tg-theme-text-color,#1c1c1e)}
+.w{max-width:640px;margin:0 auto;padding:16px}
+h1{font-size:20px;margin:4px 0 12px}
+.bar{height:6px;background:#dde1e6;border-radius:3px;overflow:hidden;margin-bottom:12px}.bar i{display:block;height:100%;background:#2b7de9;width:0}
+.top{display:flex;justify-content:space-between;font-size:14px;opacity:.75;margin-bottom:8px}
+.card{background:var(--tg-theme-secondary-bg-color,#fff);border-radius:14px;padding:16px;box-shadow:0 1px 3px rgba(0,0,0,.08)}
+.q{white-space:pre-line;font-size:16px;line-height:1.45;margin-bottom:14px}
+.o{display:flex;gap:10px;width:100%;text-align:left;padding:12px;margin:8px 0;border:1.5px solid #d0d5db;border-radius:10px;background:transparent;color:inherit;font-size:15px;line-height:1.35;cursor:pointer}
+.o b{flex:0 0 26px;height:26px;border-radius:50%;background:#1c1c1e;color:#fff;display:flex;align-items:center;justify-content:center;font-size:13px}
+.o.ok{border-color:#1f9d55;background:#e6f6ec;color:#1c1c1e}.o.ok b{background:#1f9d55}
+.o.no{border-color:#d64545;background:#fdeaea;color:#1c1c1e}.o.no b{background:#d64545}
+.btn{width:100%;padding:14px;border:0;border-radius:10px;background:var(--tg-theme-button-color,#2b7de9);color:var(--tg-theme-button-text-color,#fff);font-size:16px;margin-top:12px;cursor:pointer}
+.btn:disabled{opacity:.4}
+.res{text-align:center}.res .big{font-size:44px;font-weight:700;margin:10px 0}
+</style></head><body><div class="w">
+<h1>Tahlillar 7</h1>
+<div class="bar"><i id="bar"></i></div>
+<div id="app"></div></div>
+<script>
+const Q=[{"n": 72, "q": "Maktab kutubxonachisi faqat matn tarjimasi uchun Google Translate’dan, direktor o‘rinbosari esa buyruq loyihasi, reja va tahliliy material tayyorlash uchun ChatGPT’dan foydalanmoqda.\nBu vositalar SI ning qaysi turlariga mos keladi?", "o": ["Tor SI va qisman umumiy SI", "Tor SI va to‘liq umumiy SI", "Umumiy SI va qisman super SI", "Tor SI va qisman super SI"], "a": 0}, {"n": 73, "q": "Direktor chatbotga yozdi: «Siz tajribali ta’lim menejerisiz. Maktabimizda 900 nafar o‘quvchi bor, moddiy-texnik baza o‘rtacha, ustuvor yo‘nalish — ta’lim sifati. Maktab uchun rivojlanish strategiyasi yozing.» Javob juda umumiy chiqdi.\nUchlik qoidaning qaysi talabi bajarilmagan?", "o": ["Aniq rolni yuklash", "Vaziyatni to‘liq bayon etish", "Javobni tanqidiy tekshirish", "Natijani aniqroq talab etish"], "a": 3}, {"n": 74, "q": "Maktab boshqaruvidagi holatlarni SI qo‘llanish yo‘nalishi bilan moslashtiring.\n1) O‘quvchilar davomatini avtomatik kuzatish va tahlil qilish\n2) Natijalar dinamikasidan kamchiliklarni erta aniqlash\n3) Videonazorat orqali favqulodda vaziyatni aniqlash\nA) Ma’muriy vazifalarni optimallashtirish\nB) Ta’lim sifatini nazorat qilish\nC) Ma’lumotlar tahlili va qaror qabul qilish\nD) Xavfsizlikni ta’minlash", "o": ["1–A, 2–B, 3–D", "1–A, 2–C, 3–D", "1–B, 2–C, 3–D", "1–A, 2–C, 3–B"], "a": 1}, {"n": 75, "q": "Direktor xavf guruhidagi o‘quvchilarni aniqlash uchun ularning familiyasi, baholari va oilaviy sharoiti yozilgan jadvalni chatbotga yuklab tahlil qildirmoqchi. Ota-onalardan rozilik olinmagan.\nDirektor eng avvalo qanday yo‘l tutishi kerak?", "o": ["Chatbot xulosasini tekshirib, so‘ng qaror qabul qiladi", "Yakuniy qarorni chatbot emas, pedagogik jamoa qabul qiladi", "Ma’lumotni roziliksiz chatbot tahliliga topshirmaydi", "Tahlil natijasini ota-onalarga oshkora ma’lum qiladi"], "a": 2}, {"n": 76, "q": "Modulga ko‘ra qaysi ikki chatbot bepul akkauntlarda ko‘proq limit taqdim etishi bilan ajralib turadi?", "o": ["DeepSeek va Grok", "Gemini va Copilot", "ChatGPT va Claude", "Grok va Gemini"], "a": 0}, {"n": 77, "q": "Maktabdagi vaziyatlarni ular uchun eng mos raqamli vosita bilan moslashtiring.\n1) Hujjatlar arxivini internetda saqlab, istalgan qurilmadan ko‘chirib olish\n2) Majlisda kanal havolasini telefon kamerasi bilan bir zumda ochish\n3) Ikki o‘rinbosar bir hujjatni bir vaqtda tahrirlab, o‘zgarishni darhol ko‘rishi\nA) Google Docs\nB) Google Drive\nC) QR kod\nD) Google Sheets", "o": ["1–B, 2–C, 3–D", "1–A, 2–C, 3–B", "1–B, 2–C, 3–A", "1–D, 2–C, 3–A"], "a": 2}, {"n": 78, "q": "O‘qituvchilar ChatGPT bilan ishlashga o‘rganib qolgan. Direktor ularga Microsoft xizmatidagi chatbotni tavsiya qilib, «ishlashi sizga tanish bo‘ladi» dedi.\nDirektor tavsiya qilgan chatbot haqida qaysi tavsif to‘g‘ri?", "o": ["Copilot — Gemini bazasida, g‘oyalar yaratishda ustun", "Grok — ChatGPT bazasida ishlaydi, o‘xshash ustunliklarga ega", "Copilot — ChatGPT bazasida, bepul limiti ko‘proq", "Copilot — ChatGPT bazasida, unga o‘xshash afzalliklarga ega"], "a": 3}, {"n": 79, "q": "Boshqaruv vazifalarini SI vositasi bilan moslashtiring.\n1) Murakkab boshqaruv jarayoni matnini sxema va infografikaga aylantirish\n2) «Yashil maktab» loyihasi bo‘yicha taqdimotni brauzerda tez tayyorlash\n3) Bepul imkoniyat bilan tasvir yaratib, uning bir qismini Canvas orqali tahrirlash\nA) Gamma\nB) Leonardo AI\nC) Napkin\nD) MidJourney", "o": ["1–C, 2–A, 3–D", "1–C, 2–A, 3–B", "1–A, 2–C, 3–B", "1–C, 2–D, 3–B"], "a": 1}, {"n": 80, "q": "O‘zgarish davridagi belgilarni qiyinchilik turi bilan moslashtiring.\n1) Muddat noaniq, mas’ullar belgilanmagan, reja yo‘q\n2) Ko‘nikma yetishmaydi, motivatsiya pasaygan, qarshilik kuchaygan\n3) Ota-onalar bosimi, tekshiruvlar, jamoatchilik e’tibori\nA) Kadrlar\nB) Tashqi\nC) Tashkiliy\nD) Psixologik", "o": ["1–A, 2–C, 3–B", "1–C, 2–D, 3–B", "1–C, 2–A, 3–D", "1–C, 2–A, 3–B"], "a": 3}, {"n": 81, "q": "Maktabda yangi baholash tizimi joriy etildi. O‘qituvchilar «nima o‘zgaradi?» degan savollarga javob ololmayapti. Mish-mishlar ko‘paydi va norozilik kuchaydi.\nDirektor qaysi muammoni birinchi navbatda bartaraf etishi kerak?", "o": ["Kommunikatsiya bo‘shlig‘ini", "Jarayon izchilligi sustligini", "Tushuntirish ishlari zaifligini", "Jamoa ishonchi pasayishini"], "a": 0}];const L="ABCD";let i=0,score=0,done=false;
+try{Telegram.WebApp.ready();Telegram.WebApp.expand()}catch(e){}
+const app=document.getElementById('app'),bar=document.getElementById('bar');
+function show(){done=false;bar.style.width=(i/Q.length*100)+'%';const q=Q[i];
+app.innerHTML='<div class="top"><span>'+q.n+'-savol · '+(i+1)+' / '+Q.length+'</span><span>To‘g‘ri: '+score+'</span></div><div class="card"><div class="q"></div>'+
+q.o.map((t,k)=>'<button class="o" data-k="'+k+'"><b>'+L[k]+'</b><span></span></button>').join('')+
+'<button class="btn" id="nx" disabled>'+(i<Q.length-1?'Keyingi savol':'Natijani ko‘rish')+'</button></div>';
+app.querySelector('.q').textContent=q.q;
+app.querySelectorAll('.o').forEach(b=>{b.querySelector('span').textContent=q.o[+b.dataset.k];b.onclick=()=>pick(b)});
+document.getElementById('nx').onclick=()=>{i++;i<Q.length?show():result()};window.scrollTo(0,0)}
+function pick(b){if(done)return;done=true;const k=+b.dataset.k,a=Q[i].a;
+app.querySelectorAll('.o')[a].classList.add('ok');if(k===a)score++;else b.classList.add('no');
+try{Telegram.WebApp.HapticFeedback.notificationOccurred(k===a?'success':'error')}catch(e){}
+document.getElementById('nx').disabled=false}
+function result(){bar.style.width='100%';const p=Math.round(score/Q.length*100);
+app.innerHTML='<div class="card res"><div>Natijangiz</div><div class="big">'+score+' / '+Q.length+'</div><div>'+p+'%</div><button class="btn" id="re">Qayta topshirish</button></div>';
+document.getElementById('re').onclick=()=>{i=0;score=0;show()}}
+show();
+</script></body></html>
