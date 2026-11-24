@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="uz"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tahlillar 6</title>
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:-apple-system,Segoe UI,Roboto,sans-serif;background:var(--tg-theme-bg-color,#f4f5f7);color:var(--tg-theme-text-color,#1c1c1e)}
+.w{max-width:640px;margin:0 auto;padding:16px}
+h1{font-size:20px;margin:4px 0 12px}
+.bar{height:6px;background:#dde1e6;border-radius:3px;overflow:hidden;margin-bottom:12px}.bar i{display:block;height:100%;background:#2b7de9;width:0}
+.top{display:flex;justify-content:space-between;font-size:14px;opacity:.75;margin-bottom:8px}
+.card{background:var(--tg-theme-secondary-bg-color,#fff);border-radius:14px;padding:16px;box-shadow:0 1px 3px rgba(0,0,0,.08)}
+.q{white-space:pre-line;font-size:16px;line-height:1.45;margin-bottom:14px}
+.o{display:flex;gap:10px;width:100%;text-align:left;padding:12px;margin:8px 0;border:1.5px solid #d0d5db;border-radius:10px;background:transparent;color:inherit;font-size:15px;line-height:1.35;cursor:pointer}
+.o b{flex:0 0 26px;height:26px;border-radius:50%;background:#1c1c1e;color:#fff;display:flex;align-items:center;justify-content:center;font-size:13px}
+.o.ok{border-color:#1f9d55;background:#e6f6ec;color:#1c1c1e}.o.ok b{background:#1f9d55}
+.o.no{border-color:#d64545;background:#fdeaea;color:#1c1c1e}.o.no b{background:#d64545}
+.btn{width:100%;padding:14px;border:0;border-radius:10px;background:var(--tg-theme-button-color,#2b7de9);color:var(--tg-theme-button-text-color,#fff);font-size:16px;margin-top:12px;cursor:pointer}
+.btn:disabled{opacity:.4}
+.res{text-align:center}.res .big{font-size:44px;font-weight:700;margin:10px 0}
+</style></head><body><div class="w">
+<h1>Tahlillar 6</h1>
+<div class="bar"><i id="bar"></i></div>
+<div id="app"></div></div>
+<script>
+const Q=[{"n": 52, "q": "Tashkilot rahbari buyruq va farmoyishlarni qonuniy asosda rasmiylashtirishni, shuningdek hujjatlar bilan ishlash madaniyatini rivojlantirishni maqsad qilmoqda. Shu maqsadda u amaliy huquqiy tahlil qilish, hujjatlarni tekshirish va ularni qonunchilikka muvofiqlashtirish ishlarini yo‘lga qo‘ymoqda.\nQaysi yo‘l uning huquqiy savodxonligini bevosita mustahkamlaydi?", "o": ["Hujjatlarni huquqiy talablar asosida tekshirish", "Amaliy huquqiy ko‘nikmalarni shakllantirish", "Buyruqlarni qonuniy asosda rasmiylashtirish", "Ish yuritish madaniyatini huquqiy rivojlantirish"], "a": 1}, {"n": 53, "q": "Direktor yangi qonun qabul qilinganidan keyin tashkilot faoliyatida xatoliklarga yo‘l qo‘ymaslikni xohlaydi. U qonun va qarorlarni muntazam o‘rganish va amaldagi tahrirlarni kuzatishni rejalashtirmoqda.\nQaysi yo‘l uning huquqiy savodxonligini oshirishga eng mos keladi?", "o": ["Huquqiy hujjatlarni muntazam o‘rganib borish", "Qonunchilik talablarini amalda kuzatib borish", "Joriy davrning huquqiy bilimlarini yangilab borish", "Normativ o‘zgarishlarni doimiy tahlil qilib borish"], "a": 2}, {"n": 54, "q": "Intizomiy ish yuritishdagi harakatlarni ular bajariladigan bosqich bilan moslashtiring.\n1) Xodim yozma izoh berishdan bosh tortgani haqida dalolatnoma tuzish\n2) Guvohlar ko‘rsatmasini olish va xizmat tekshiruvini tashkil etish\n3) Xodimning oldingi intizomiy holatlari va xizmat faoliyatini o‘rganish\n4) Buyruqni xodimga imzo orqali tanishtirish\nA) Qoidabuzarlikni aniqlash\nB) Tushuntirish xati olish\nC) Holatni tahlil qilish\nD) Intizomiy jazo qo‘llash\nE) Hujjatlarni rasmiylashtirish", "o": ["1–A, 2–B, 3–C, 4–D", "1–B, 2–A, 3–C, 4–E", "1–B, 2–A, 3–C, 4–D", "1–A, 2–B, 3–E, 4–D"], "a": 2}, {"n": 55, "q": "Baholash natijasida qilingan harakatlarni baholashning funksional maqsadi bilan moslashtiring.\n1) Natijalar asosida o‘qituvchi bilan mehnat shartnomasini uzaytirmaslik uchun asos tayyorlandi\n2) Direktor suhbatda o‘qituvchiga yutuq va kamchiliklarini dalillar bilan tushuntirdi\n3) O‘qituvchi uchun individual rivojlanish rejasi (IDP) ishlab chiqildi\nA) Ma’muriy maqsad\nB) Axborot berish (teskari aloqa)\nC) Motivatsion maqsad\nD) Rivojlantirish maqsadi", "o": ["1–A, 2–C, 3–D", "1–A, 2–B, 3–D", "1–C, 2–B, 3–D", "1–A, 2–D, 3–B"], "a": 1}, {"n": 56, "q": "Pedagogik xodimlarni baholashda qaysi mezon ichki tartib qoidalariga rioya qilish va pedagogik odob-axloq normalariga moslikni o‘lchaydi?", "o": ["Kasbiy madaniyat va mas’uliyat", "Ichki tartibga amal qilish", "Kasbiy etika va intizom", "Pedagogik odob va tartib"], "a": 2}, {"n": 57, "q": "Siz maktab rahbarisiz. Darsni kuzatishdan oldin sizga faqat dars mavzusi va maqsadlar ro‘yxati berildi. Dars jarayonini kuzatishda siz ularning davlat ta’lim standartlariga mos yoki mos emasligini aniqlashni xohlaysiz.\nShu vaziyatda qaysi bosqich va mezon asosida xulosa chiqarish eng to‘g‘ri bo‘ladi?", "o": ["Maqsadlarni oldin tahlil qilish", "Kuzatuvdan oldingi tahlil", "Dars rejasini avval ko‘rish", "DTSga moslikni tekshirish"], "a": 1}, {"n": 58, "q": "Siz maktab rahbarisiz. Dars kuzatuviga kirganingizda o‘qituvchi 45 daqiqa davomida o‘z nutqini asosiy qismga aylantirgan, o‘quvchilarning faol ishtiroki esa kam.\nSifat mezoni bo‘yicha eng katta kamchilikni belgilang.", "o": ["O‘quvchi faolligi pastligi", "Darsda monolog ustunligi", "Mustaqil ishning kamligi", "O‘quvchi markazlashuvi"], "a": 3}, {"n": 59, "q": "Direktor quyidagi masalalarda qaysi hujjatga tayanishini moslashtiring.\n1) Maktabning o‘quv yuklamalari va boshqaruv tuzilmasi\n2) Direktor o‘rinbosarining vazifalari va hujjat yuritish tartibi\n3) Direktorning vakolatlari, pedagog va o‘quvchilarning huquq va majburiyatlari\nA) Prezident farmonlari va qarorlari\nB) Vazirlar Mahkamasi qarorlari\nC) Maktabgacha va maktab ta’limi vazirligi buyruqlari\nD) «Ta’lim to‘g‘risida»gi Qonun", "o": ["1–B, 2–C, 3–A", "1–C, 2–B, 3–D", "1–B, 2–C, 3–D", "1–B, 2–D, 3–C"], "a": 2}, {"n": 60, "q": "Kuzatuv kengashining asosiy vazifasi nimadan iborat?", "o": ["Maktab ochiqligini nazorat qilish", "Jamoatchilik ishonchini kuchaytirish", "Maktab shaffofligini ta’minlash", "Hamkorlik jarayonini muvofiqlashtirish"], "a": 2}, {"n": 61, "q": "Maktabda ota-onalar bilan uchrashuvlar va individual suhbatlar muntazam o‘tadi, ota-onalar maktabga ishonadi. Chorak yakunida esa ko‘plab ota-onalar chatlarda e’tiroz bildirdi: farzandining bahosi pasaygan. Ma’lum bo‘ldiki, ular yangi baholash tizimida ball qanday hisoblanishini noto‘g‘ri tushungan.\nModulga ko‘ra direktor bu holatda qaysi strategiyani qo‘llashi kerak?", "o": ["Yuzaga kelgan tushunmovchilikni tahlil qilib, ota-onalarga aniq tushuntirish berish", "Ota-onalar bilan ochiq va ishonchli muloqotni o‘rnatish uchun uchrashuvlarni ko‘paytirish", "Ota-onalarga farzandini qo‘llab-quvvatlash ko‘nikmalarini o‘rgatish tizimini yaratish", "O‘quvchilar rivojlanishi va uchrashuvlarning yillik tahlilini yuritish"], "a": 0}];const L="ABCD";let i=0,score=0,done=false;
+try{Telegram.WebApp.ready();Telegram.WebApp.expand()}catch(e){}
+const app=document.getElementById('app'),bar=document.getElementById('bar');
+function show(){done=false;bar.style.width=(i/Q.length*100)+'%';const q=Q[i];
+app.innerHTML='<div class="top"><span>'+q.n+'-savol · '+(i+1)+' / '+Q.length+'</span><span>To‘g‘ri: '+score+'</span></div><div class="card"><div class="q"></div>'+
+q.o.map((t,k)=>'<button class="o" data-k="'+k+'"><b>'+L[k]+'</b><span></span></button>').join('')+
+'<button class="btn" id="nx" disabled>'+(i<Q.length-1?'Keyingi savol':'Natijani ko‘rish')+'</button></div>';
+app.querySelector('.q').textContent=q.q;
+app.querySelectorAll('.o').forEach(b=>{b.querySelector('span').textContent=q.o[+b.dataset.k];b.onclick=()=>pick(b)});
+document.getElementById('nx').onclick=()=>{i++;i<Q.length?show():result()};window.scrollTo(0,0)}
+function pick(b){if(done)return;done=true;const k=+b.dataset.k,a=Q[i].a;
+app.querySelectorAll('.o')[a].classList.add('ok');if(k===a)score++;else b.classList.add('no');
+try{Telegram.WebApp.HapticFeedback.notificationOccurred(k===a?'success':'error')}catch(e){}
+document.getElementById('nx').disabled=false}
+function result(){bar.style.width='100%';const p=Math.round(score/Q.length*100);
+app.innerHTML='<div class="card res"><div>Natijangiz</div><div class="big">'+score+' / '+Q.length+'</div><div>'+p+'%</div><button class="btn" id="re">Qayta topshirish</button></div>';
+document.getElementById('re').onclick=()=>{i=0;score=0;show()}}
+show();
+</script></body></html>
