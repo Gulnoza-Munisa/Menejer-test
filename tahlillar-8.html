@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="uz"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tahlillar 8</title>
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:-apple-system,Segoe UI,Roboto,sans-serif;background:var(--tg-theme-bg-color,#f4f5f7);color:var(--tg-theme-text-color,#1c1c1e)}
+.w{max-width:640px;margin:0 auto;padding:16px}
+h1{font-size:20px;margin:4px 0 12px}
+.bar{height:6px;background:#dde1e6;border-radius:3px;overflow:hidden;margin-bottom:12px}.bar i{display:block;height:100%;background:#2b7de9;width:0}
+.top{display:flex;justify-content:space-between;font-size:14px;opacity:.75;margin-bottom:8px}
+.card{background:var(--tg-theme-secondary-bg-color,#fff);border-radius:14px;padding:16px;box-shadow:0 1px 3px rgba(0,0,0,.08)}
+.q{white-space:pre-line;font-size:16px;line-height:1.45;margin-bottom:14px}
+.o{display:flex;gap:10px;width:100%;text-align:left;padding:12px;margin:8px 0;border:1.5px solid #d0d5db;border-radius:10px;background:transparent;color:inherit;font-size:15px;line-height:1.35;cursor:pointer}
+.o b{flex:0 0 26px;height:26px;border-radius:50%;background:#1c1c1e;color:#fff;display:flex;align-items:center;justify-content:center;font-size:13px}
+.o.ok{border-color:#1f9d55;background:#e6f6ec;color:#1c1c1e}.o.ok b{background:#1f9d55}
+.o.no{border-color:#d64545;background:#fdeaea;color:#1c1c1e}.o.no b{background:#d64545}
+.btn{width:100%;padding:14px;border:0;border-radius:10px;background:var(--tg-theme-button-color,#2b7de9);color:var(--tg-theme-button-text-color,#fff);font-size:16px;margin-top:12px;cursor:pointer}
+.btn:disabled{opacity:.4}
+.res{text-align:center}.res .big{font-size:44px;font-weight:700;margin:10px 0}
+</style></head><body><div class="w">
+<h1>Tahlillar 8</h1>
+<div class="bar"><i id="bar"></i></div>
+<div id="app"></div></div>
+<script>
+const Q=[{"n": 82, "q": "Yangi elektron kundalik joriy etilgach, baholar o‘z vaqtida kiritilmay qoldi. Direktor yig‘ilishda masalani ochiq muhokama qildi, o‘qituvchilarni hurmat bilan tingladi va kechikkanlarga ogohlantirish berdi. Ammo kechikishga sabab bo‘lgan internet, qurilma va yo‘riqnoma masalasi o‘rganilmadi — keyingi oy ham baholar kechikdi.\nDirektor qiyinchiliklarni boshqarishning qaysi tamoyiliga amal qilmagan?", "o": ["Tizimlilik tamoyili", "Ochiq muloqot tamoyili", "Oldini olish tamoyili", "Insonparvarlik tamoyili"], "a": 0}, {"n": 83, "q": "Qaysi holatda «5 nega?» usuli eng samarali hisoblanadi?", "o": ["Muammo sababi takroriy tekshirilayotganida", "Muammo ildizi chuqur aniqlanayotganida", "Muammo takroran davom etayotganida", "Muammo natijasi qayta baholanayotganida"], "a": 2}, {"n": 84, "q": "Maktabda yangi raqamli platforma joriy qilindi. Rahbar trening tashkil qildi, mas’ullar tayinlandi, dastlabki ma’lumotlar yuklandi. Bir necha oy o‘tib foydalanuvchilar texnik yordam va yordamnomalarga ehtiyoj sezdi, ayrim ma’lumotlar noto‘g‘ri kiritildi, platforma samarasi pasaydi. Rahbar tizimdan kelayotgan ma’lumotlarni tahlil qilish va tuzatish bo‘yicha yetarli ish olib bormagan.\nO‘zgarishlarni boshqarishning qaysi bosqichi yetarlicha amalga oshirilmagan?", "o": ["Metodik yordam va nazorat bosqichi", "Qo‘llab-quvvatlash va o‘qitish bosqichi", "Texnik ko‘mak va tahlil bosqichi", "Amaliy kuzatuv va tuzatish bosqichi"], "a": 1}, {"n": 85, "q": "Direktor o‘quvchining o‘zlashtirishdagi qiyinchiligini faqat «bola sust» degan fikr bilan izohlash o‘rniga dars metodikasi, sinf muhiti va ta’lim sharoitlarini ham tahlil qilishni topshirdi.\nBu yondashuv inklyuziv ta’limning qaysi jihatini aks ettiradi?", "o": ["Ta’limdagi cheklovlar talqinining o‘zgarishi", "Ta’limdagi qiyinchilik sababining o‘rganilishi", "Ta’limdagi muhit ta’sirining aniqlashtirilishi", "Ta’limdagi metodik omillarning baholanishi"], "a": 0}, {"n": 86, "q": "Til to‘sig‘i mavjud va ijtimoiy sharoiti murakkab bo‘lgan o‘quvchilar uchun maktab qo‘shimcha pedagogik yordam, moslashtirilgan topshiriqlar va tengdoshlar yordamini yo‘lga qo‘ydi.\nUshbu choralar eng avvalo nimaga xizmat qiladi?", "o": ["Ta’limdan ajralish xavfini kamaytirishga", "Ta’limda uzilish holatini cheklashga", "Ta’limdan chetlashishning oldini olishga", "Ta’limda ishtirok davomiyligini saqlashga"], "a": 2}, {"n": 87, "q": "Bir maktab barcha o‘quvchilarga bir xil topshiriq va bir xil baholash mezonini qo‘llash o‘rniga, ularning individual ehtiyojlari va rivojlanish sur’atlari hisobga olingan holda moslashtirilgan baholash tizimini joriy etdi.\nBu inklyuziv ta’limning qaysi tamoyiliga mos keladi?", "o": ["Ta’limdagi adolat va individuallikka", "Ta’limdagi adolat va ehtiyojlilikka", "Ta’limdagi adolat va moslashtirishga", "Ta’limdagi adolat va moslashuvchanlikka"], "a": 3}, {"n": 88, "q": "Maktabda turli ijtimoiy sharoit, xulq-atvor va emotsional holatga ega o‘quvchilar birgalikda ta’lim olmoqda. O‘quvchilar va ota-onalarda «farqlilik — tabiiy holat» degan qarash shakllanmoqda.\nUshbu holat inklyuziv ta’limning qaysi ijtimoiy ta’sirini eng to‘g‘ri ifodalaydi?", "o": ["Insonparvarlik qarashining rivojlanishi", "Insonparvarlik muhitining mustahkamlanishi", "Insonparvar tafakkurning shakllanishi", "Insonparvarlik munosabatining qaror topishi"], "a": 2}, {"n": 89, "q": "Maktabda «har bir o‘quvchi hurmatga loyiq, xatolar jazolash uchun emas, o‘rganish uchun» degan tamoyillar asosida ishonchli muhit yaratildi.\nUshbu holat inklyuziv ta’limning qaysi ijtimoiy ta’sir yo‘nalishini ifodalaydi?", "o": ["Inklyuziv muhitning mustahkamlanishi", "Inklyuziv madaniyatning qaror topishi", "Inklyuziv yondashuvning rivojlanishi", "Inklyuziv munosabatning shakllanishi"], "a": 1}, {"n": 90, "q": "Inklyuziv ta’limning ijtimoiy ta’sir yo‘nalishlarini ularning mazmuni bilan moslashtiring.\n1) Ijtimoiy tafakkur barqarorligi\n2) Insonparvar tafakkurning shakllanishi\n3) Inklyuziv madaniyatni qaror toptirish\nA) Farqlilikni tabiiy va ijobiy hodisa sifatida qabul qilish\nB) Ishonch, xavfsizlik va o‘zaro hurmatga asoslangan muhitni rivojlantirish\nC) Farqlilikni inkor etuvchi radikal qarashlarga nisbatan ijtimoiy immunitetni shakllantirish\nD) Ta’limdagi ehtiyojlarni individual yondashuv asosida moslashtirish", "o": ["1–C, 2–D, 3–B", "1–C, 2–A, 3–B", "1–A, 2–C, 3–B", "1–C, 2–A, 3–D"], "a": 1}];const L="ABCD";let i=0,score=0,done=false;
+try{Telegram.WebApp.ready();Telegram.WebApp.expand()}catch(e){}
+const app=document.getElementById('app'),bar=document.getElementById('bar');
+function show(){done=false;bar.style.width=(i/Q.length*100)+'%';const q=Q[i];
+app.innerHTML='<div class="top"><span>'+q.n+'-savol · '+(i+1)+' / '+Q.length+'</span><span>To‘g‘ri: '+score+'</span></div><div class="card"><div class="q"></div>'+
+q.o.map((t,k)=>'<button class="o" data-k="'+k+'"><b>'+L[k]+'</b><span></span></button>').join('')+
+'<button class="btn" id="nx" disabled>'+(i<Q.length-1?'Keyingi savol':'Natijani ko‘rish')+'</button></div>';
+app.querySelector('.q').textContent=q.q;
+app.querySelectorAll('.o').forEach(b=>{b.querySelector('span').textContent=q.o[+b.dataset.k];b.onclick=()=>pick(b)});
+document.getElementById('nx').onclick=()=>{i++;i<Q.length?show():result()};window.scrollTo(0,0)}
+function pick(b){if(done)return;done=true;const k=+b.dataset.k,a=Q[i].a;
+app.querySelectorAll('.o')[a].classList.add('ok');if(k===a)score++;else b.classList.add('no');
+try{Telegram.WebApp.HapticFeedback.notificationOccurred(k===a?'success':'error')}catch(e){}
+document.getElementById('nx').disabled=false}
+function result(){bar.style.width='100%';const p=Math.round(score/Q.length*100);
+app.innerHTML='<div class="card res"><div>Natijangiz</div><div class="big">'+score+' / '+Q.length+'</div><div>'+p+'%</div><button class="btn" id="re">Qayta topshirish</button></div>';
+document.getElementById('re').onclick=()=>{i=0;score=0;show()}}
+show();
+</script></body></html>
